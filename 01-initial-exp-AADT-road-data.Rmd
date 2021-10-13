@@ -1,0 +1,53 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Exploring CA CalTrans Traffic Counts (AADT) Data
+
+Load relevant libraries:
+
+```{r load-libraries}
+library(tidyverse)
+library(here)
+library(janitor)
+library(magrittr)
+library(sf)
+library(readxl)
+library(tmap)
+```
+
+Straight to loading the KML of California roads:
+
+```{r CA-roads}
+# load KML of CA roads from California GIS website
+ca_roads <- st_read("data/CA_roads/Highway_All_Roads.kml", driver="KML")
+
+```
+
+This KML does not work - need alternative source. 
+
+Look at data tables instead!
+
+2019 traffic census data
+
+```{r CA-traffic-census-2019}
+# load KML of CA roads from California GIS website
+traffic_2019 <- read_excel("data/traffic_census/all_traffic/2019-traffic-volumes.xlsx", sheet = 2)
+
+traffic_2018 <- read_excel("data/traffic_census/all_traffic/2018-traffic-aadt-v2.xlsx", sheet = 2)
+
+# 2013 - 2017 are single sheet documents
+# 2018 and 2019 have a preface, need the sheet = 2 argument 
+
+```
+
+What about the postmile data? Can we concatenate?
+
+```{r CA-postmiles}
+# load KML of CA roads from California GIS website
+postmile_tenth <- st_read("data/postmiles/SHN_Postmiles_Tenth/SHN_Postmiles_Tenth.shp")
+
+postmile_mile <- st_read("data/postmiles/SHN__Postmiles_One_Mile_Interval/SHN__Postmiles_One_Mile_Interval.shp")
+
+```

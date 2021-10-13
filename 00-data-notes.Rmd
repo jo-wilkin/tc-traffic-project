@@ -1,0 +1,21 @@
+---
+title: "Data Notes"
+output: html_notebook
+---
+
+# Review of current open data
+
+HPMS (e.g. 2019 <https://dot.ca.gov/-/media/dot-media/programs/research-innovation-system-information/documents/california-public-road-data/prd-2019v3-a11y.pdf>).
+
+Traffic Census (e.g. 2019 <https://dot.ca.gov/programs/traffic-operations/census>) 
+
+HPMS is aggregated in the PDFs, does not appear to have spatial resolution required.
+
+Traffic Census is theorectically point/line data counts - but need to figure out how to join these records to a spatial dataset. We have road names and post miles which are likely to be our two key references.
+
+Voila - post-miles tool: Here<https://postmile.dot.ca.gov/PMQT/PostmileQueryTool.html?>
+
+The Postmile Query Tool enables you to explore California's Linear Reference System. You can validate postmiles, convert between postmiles and geo-coordinates, and determine the state odometer associated with a postmile or geo-coordinate.
+
+Need a batch version of this tool to batch process all of our records into a single point file!
+
